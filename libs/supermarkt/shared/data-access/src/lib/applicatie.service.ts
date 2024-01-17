@@ -9,6 +9,7 @@ export interface ApplicatieState {
 
 @Injectable({ providedIn: 'root' })
 export class ApplicatieService {
+  
   private initialState: ApplicatieState = {
     supermarkt: undefined,
   };

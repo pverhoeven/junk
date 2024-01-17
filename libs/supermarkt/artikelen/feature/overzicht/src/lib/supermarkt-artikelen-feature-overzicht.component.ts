@@ -3,11 +3,17 @@ import { CommonModule } from '@angular/common';
 import { ArtikelenService } from '@supermarkt/artikelen/data-access';
 import { ApplicatieService } from '@supermarkt/shared/data-access';
 import { DomeinDropdownComponent } from '@supermarkt/shared/ui';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'jkm-supermarkt-artikelen-feature-overzicht',
   standalone: true,
-  imports: [CommonModule, DomeinDropdownComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    DomeinDropdownComponent,
+  ],
   template: `
     {{ applicatie.state.supermarkt() | json }}
     <hr />
@@ -26,11 +32,18 @@ import { DomeinDropdownComponent } from '@supermarkt/shared/ui';
     >
     <hr />
 
-    <jkm-domein-dropdown domeinsoort="frisdranken"></jkm-domein-dropdown>
+    <form [formGroup]="artikelen.form">
+      <jkm-domein-dropdown
+        formControlName="frisdrank"
+        domeinsoort="frisdranken"
+      ></jkm-domein-dropdown>
+      <jkm-domein-dropdown
+        formControlName="fruit"
+        domeinsoort="fruit"
+      ></jkm-domein-dropdown>
+    </form>
 
-    <hr />
-
-    <jkm-domein-dropdown domeinsoort="fruit"></jkm-domein-dropdown>
+    {{ artikelen.state() | json }}
   `,
   styles: [],
   providers: [ArtikelenService],

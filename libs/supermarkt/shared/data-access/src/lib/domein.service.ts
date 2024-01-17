@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, from, map, shareReplay, switchMap, tap } from 'rxjs';
+import { Observable, from, map, shareReplay, switchMap } from 'rxjs';
 import { ApplicatieService } from './applicatie.service';
 import { Domein, Domeinwaarde } from '@supermarkt/shared/interfaces';
 import { signalSlice } from 'ngxtension/signal-slice';
@@ -10,7 +10,7 @@ export interface DomeinState {
 }
 
 @Injectable({ providedIn: 'root' })
-export class DomeinStateService {
+export class DomeinService {
   http = inject(HttpClient);
   applicatie = inject(ApplicatieService);
 
@@ -48,7 +48,6 @@ export class DomeinStateService {
 
   public lijst(domeinsoort: string): Domeinwaarde[] {
     const domein = this.getDomein(domeinsoort);
-    console.log(domeinsoort);
     return domein ? domein.waarden : [];
   }
   private getDomein(domeinsoort: string) {
