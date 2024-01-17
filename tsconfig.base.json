@@ -14,7 +14,28 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@jkm/shared/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@jkm/shared/interfaces": ["libs/shared/interfaces/src/index.ts"],
+      "@jkm/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@supermarkt/artikelen/data-access": [
+        "libs/supermarkt/artikelen/data-access/src/index.ts"
+      ],
+      "@supermarkt/artikelen/feature/overzicht": [
+        "libs/supermarkt/artikelen/feature/overzicht/src/index.ts"
+      ],
+      "@supermarkt/artikelen/ui": ["libs/supermarkt/artikelen/ui/src/index.ts"],
+      "@supermarkt/feature/shell": [
+        "libs/supermarkt/feature/shell/src/index.ts"
+      ],
+      "@supermarkt/shared/data-access": [
+        "libs/supermarkt/shared/data-access/src/index.ts"
+      ],
+      "@supermarkt/shared/interfaces": [
+        "libs/supermarkt/shared/interfaces/src/index.ts"
+      ],
+      "@supermarkt/shared/ui": ["libs/supermarkt/shared/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

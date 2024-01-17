@@ -1,0 +1,10 @@
+[
+    {
+        "naam": "frisdranken",
+        "waarden": [{"code": "7up", "omschrijving": "7up"}, {"code": "cassis", "omschrijving": "Cassis"}]
+    },
+    {
+        "naam": "fruit",
+        "waarden": [{"code":"mandarijn", "omschrijving": "Lidl mandarijn"}, {"code":"druiven", "omschrijving": "Druiven"}]
+    }
+]

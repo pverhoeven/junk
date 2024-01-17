@@ -1,0 +1,10 @@
+[
+    {
+        "naam": "frisdranken",
+        "waarden": [{"code": "cola", "omschrijving": "Cola"}, {"code": "fanta", "omschrijving": "Fanta"}]
+    },
+    {
+        "naam": "fruit",
+        "waarden": [{"code":"appel", "omschrijving": "Appel"}, {"code":"peer", "omschrijving": "Peer"}]
+    }
+]
