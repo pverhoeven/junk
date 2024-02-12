@@ -5,6 +5,7 @@ import { signalSlice } from 'ngxtension/signal-slice';
 import { map } from 'rxjs';
 
 export interface ArtikelenState {
+  magIets: boolean | null | undefined;
   frisdrank: string | null | undefined;
   fruit: string | null | undefined;
 }
@@ -15,11 +16,13 @@ export class ArtikelenService {
   fb = inject(FormBuilder);
 
   private initialState: ArtikelenState = {
+    magIets: true,
     frisdrank: undefined,
     fruit: 'appel',
   };
 
   form = this.fb.group({
+    magIets: this.fb.control({ value: false, disabled: false }),
     frisdrank: this.fb.control({ value: '', disabled: false }),
     fruit: this.fb.control({ value: '', disabled: false }),
   });
@@ -31,5 +34,10 @@ export class ArtikelenService {
   state = signalSlice({
     initialState: this.initialState,
     sources: [this.boodschappen$],
+    effects: () => ({
+      init: () => {
+        this.form.patchValue(this.initialState);
+      },
+    }),
   });
 }

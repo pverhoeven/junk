@@ -4,6 +4,10 @@ import { ArtikelenService } from '@supermarkt/artikelen/data-access';
 import { ApplicatieService } from '@supermarkt/shared/data-access';
 import { DomeinDropdownComponent } from '@supermarkt/shared/ui';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  OpdrachtStepComponent,
+  OpdrachtStepperComponent,
+} from '@jkm/shared/ui';
 
 @Component({
   selector: 'jkm-supermarkt-artikelen-feature-overzicht',
@@ -13,6 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     DomeinDropdownComponent,
+    OpdrachtStepperComponent,
+    OpdrachtStepComponent,
   ],
   template: `
     {{ applicatie.state.supermarkt() | json }}
@@ -33,6 +39,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     <hr />
 
     <form [formGroup]="artikelen.form">
+      <label>Mag iets<input type="checkbox" formControlName="magIets" /></label>
       <jkm-domein-dropdown
         formControlName="frisdrank"
         domeinsoort="frisdranken"
@@ -44,6 +51,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     </form>
 
     {{ artikelen.state() | json }}
+
+    <jkm-opdracht-stepper>
+      <jkm-opdracht-step label="x" icoon="olifant">
+        <p>This is any content of "Step 1"</p>
+      </jkm-opdracht-step>
+      <jkm-opdracht-step label="y" icoon="geit">
+        <p>This is any content of "Step 2"</p>
+      </jkm-opdracht-step>
+      <jkm-opdracht-step label="Bijlage" *ngIf="artikelen.state.magIets()">
+        <p>This is any content of "Step 3"</p>
+      </jkm-opdracht-step>
+      <jkm-opdracht-step label="Bijna">
+        <p>This is any content of "Step 4"</p>
+      </jkm-opdracht-step>
+      <jkm-opdracht-step label="Finish">
+        <p>This is any content of "Step 5"</p>
+      </jkm-opdracht-step>
+    </jkm-opdracht-stepper>
   `,
   styles: [],
   providers: [ArtikelenService],
